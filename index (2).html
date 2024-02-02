@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology to Teju</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #85C1E9, #D2B4DE);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #3498db;
+            font-size: 2em;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            max-width: 800px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .choices {
+            display: flex;
+            justify-content: space-around;
+            width: 200px;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #yes {
+            background-color: #2ecc71;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 1.5em;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes heartBeat {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Apology to Teju</h1>
+    <p>
+        I'm truly sorry Teju. Chuki zali mazya kadun zasta boolo kivha roast kela tula. 
+        You mean the world to me, and I want to make things right.
+    </p>
+    <div class="choices">
+        <button id="yes" onclick="showResult('yes')">Yes</button>
+        <button id="no" onclick="showResult('no')">No</button>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        function showResult(choice) {
+            var resultDiv = document.getElementById('result');
+            var yesButton = document.getElementById('yes');
+            var noButton = document.getElementById('no');
+
+            if (choice === 'yes') {
+                resultDiv.innerHTML = "<p>Thank you, Teju! 🥰 I love you!</p>";
+                resultDiv.style.color = '#2ecc71';
+                resultDiv.style.animation = 'heartBeat 1s infinite alternate';
+            } else {
+                resultDiv.innerHTML = "<p>It's okay. I still love you. 😔❤️</p>";
+                resultDiv.style.color = '#e74c3c';
+            }
+
+            yesButton.style.pointerEvents = 'none';  // Disable button after choice
+            noButton.style.pointerEvents = 'none';
+
+            resultDiv.style.opacity = '1';
+        }
+    </script>
+</body>
+
+</html>
